@@ -1,7 +1,7 @@
-import { defineConfig } from "@tanstack/react-start/plugin/vite";
+//@ts-ignore
+import { createApp } from "vinxi";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 
-export default defineConfig({
-  server: {
-    preset: "node-server",
-  },
-});
+export default createApp(
+  tanstackStart()
+);
