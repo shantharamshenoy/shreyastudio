@@ -1,4 +1,6 @@
-import { defineConfig } from "@tanstack/react-start/config";
+//@ts-ignore 
+
+import { defineConfig } from "vinxi/config";
 
 export default defineConfig({
   server: {
