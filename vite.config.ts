@@ -3,6 +3,9 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   cloudflare: false,
   vite: {
+    build: {
+      outDir: ".output/public",
+    },
     server: {
       allowedHosts: ["shreya-shenoy.up.railway.app"],
     },
