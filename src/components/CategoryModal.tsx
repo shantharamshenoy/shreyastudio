@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import type { Category } from "@/data/portfolio";
 import { Lightbox } from "./Lightbox";
 
+type LightboxState = {
+  items: Array<{ src: string; title: string }>;
+  index: number;
+} | null;
+
 export function CategoryModal({
   category,
   onClose,
@@ -10,13 +15,15 @@ export function CategoryModal({
   category: Category | null;
   onClose: () => void;
 }) {
-  const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
+  const [lightbox, setLightbox] = useState<LightboxState>(null);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape" && !lightbox) onClose();
     };
+
     document.body.style.overflow = category ? "hidden" : "";
+
     window.addEventListener("keydown", handler);
     return () => {
       document.body.style.overflow = "";
@@ -46,8 +53,18 @@ export function CategoryModal({
                 className="fixed top-6 right-6 z-10 rounded-full glass p-3 text-foreground transition hover:bg-white/10"
                 aria-label="Close"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
                 </svg>
               </button>
 
@@ -69,17 +86,35 @@ export function CategoryModal({
                     <h3 className="mb-6 flex items-center gap-3 font-display text-xl">
                       <span className="h-px w-8 bg-primary" />
                       {sub.title}
-                      <span className="text-xs text-muted-foreground">({sub.items.length})</span>
+                      <span className="text-xs text-muted-foreground">
+                        ({sub.items.length})
+                      </span>
                     </h3>
-                    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                    <div key={sub.description}>
+                      {sub.description && (
+                        <p className="mb-6 max-w-xl text-sm text-muted-foreground">
+                          {sub.description}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                       {sub.items.map((item, i) => (
                         <motion.button
                           key={i}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: i * 0.04 }}
-                          onClick={() => setLightbox(item)}
-                          className="group relative aspect-[4/5] overflow-hidden rounded-xl bg-card transition hover:shadow-glow-soft"
+                          onClick={() =>
+                            setLightbox({
+                              items: sub.items.map((subItem) => ({
+                                src: subItem.src,
+                                title: subItem.title,
+                              })),
+                              index: i,
+                            })
+                          }
+                          className="group relative aspect-[16/9] overflow-hidden rounded-3xl border border-white/10 bg-secondary flex items-center justify-center"
                         >
                           <img
                             src={item.src}
@@ -88,9 +123,11 @@ export function CategoryModal({
                             onError={(e) => {
                               (e.currentTarget as HTMLImageElement).style.opacity = "0.2";
                             }}
-                            className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                            className="h-full w-full object-contain transition duration-500 group-hover:scale-110"
                           />
+
                           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
+
                           <div className="absolute bottom-3 left-3 right-3 translate-y-2 text-left text-xs text-foreground opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100">
                             {item.title}
                           </div>
@@ -106,8 +143,9 @@ export function CategoryModal({
       </AnimatePresence>
 
       <Lightbox
-        src={lightbox?.src || null}
-        title={lightbox?.title}
+        items={lightbox?.items || []}
+        index={lightbox?.index ?? 0}
+        open={!!lightbox}
         onClose={() => setLightbox(null)}
       />
     </>

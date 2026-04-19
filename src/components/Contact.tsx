@@ -23,10 +23,10 @@ export function Contact() {
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="mailto:hello@shreyashenoy.com"
+            href="mailto:shreyakamath4@gmail.com"
             className="rounded-full bg-gradient-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow-soft transition hover:shadow-glow"
           >
-            hello@shreyashenoy.com
+            Send me an Email
           </a>
           <a
             href="https://www.behance.net/shreyakamath"
@@ -37,7 +37,7 @@ export function Contact() {
             Behance
           </a>
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/shreya-ravindra-shenoy-403889150/"
             target="_blank"
             rel="noopener"
             className="rounded-full glass px-7 py-3.5 text-sm font-medium text-foreground transition hover:bg-white/10"

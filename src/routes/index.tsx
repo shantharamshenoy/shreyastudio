@@ -22,8 +22,8 @@ export const Route = createFileRoute("/")({
         content:
           "Branding, UI/UX, and digital campaigns crafted with clarity and intent.",
       },
-      { property: "og:image", content: "https://shreya-shenoy.up.railway.app/images/shreya.jpg" },
-      { property: "twitter:image", content: "https://shreya-shenoy.up.railway.app/images/shreya.jpg" },
+      { property: "og:image", content: "/images/shreya.jpg" },
+      { property: "twitter:image", content: "/images/shreya.jpg" },
     ],
   }),
   component: Index,
@@ -37,7 +37,7 @@ function Index() {
       <Hero />
       <About />
       <StackedCards />
-      <CaseStudies />
+      {/* <CaseStudies /> */}
       <Contact />
     </main>
   );

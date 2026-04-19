@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-32 lg:px-12">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-24 lg:px-12 lg:py-16">
       {/* Glow orbs */}
-      <div className="glow-orb h-[500px] w-[500px] left-[-10%] top-[10%] bg-primary/30 animate-float-slow" />
+      <div className="glow-orb left-[-10%] top-[10%] h-[500px] w-[500px] bg-primary/30 animate-float-slow" />
       <div
-        className="glow-orb h-[600px] w-[600px] right-[-15%] top-[20%] bg-accent/25 animate-float-slow"
+        className="glow-orb right-[-15%] top-[20%] h-[600px] w-[600px] bg-accent/25 animate-float-slow"
         style={{ animationDelay: "-4s" }}
       />
-      <div className="glow-orb h-[400px] w-[400px] left-[40%] bottom-[-10%] bg-primary-deep/40 animate-pulse-glow" />
+      <div className="glow-orb left-[40%] bottom-[-10%] h-[400px] w-[400px] bg-primary-deep/40 animate-pulse-glow" />
 
       {/* Radial gradient overlay */}
       <div
@@ -17,7 +17,7 @@ export function Hero() {
         style={{ background: "var(--gradient-radial)" }}
       />
 
-      <div className="relative mx-auto grid max-w-7xl gap-16 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
+      <div className="relative mx-auto grid max-w-7xl top-8 items-center gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
         <div className="flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -48,8 +48,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
-            A curated portfolio by <span className="text-foreground">Shreya R Shenoy</span> —
-            branding, packaging, campaigns, and interface design crafted with clarity and intent.
+            Every project here started with a problem - a brand that needed a voice, a story that needed shape, an experience that needed clarity. This is how I solved them.
           </motion.p>
 
           <motion.div
@@ -63,8 +62,19 @@ export function Hero() {
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow-soft transition hover:shadow-glow"
             >
               View Work
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition group-hover:translate-x-1">
-                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition group-hover:translate-x-1"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
               </svg>
             </a>
             <a
@@ -75,7 +85,7 @@ export function Hero() {
             </a>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
@@ -92,9 +102,11 @@ export function Hero() {
             </div>
             <div className="h-10 w-px bg-border" />
             <div className="max-w-[160px]">
-              <div className="font-display text-sm text-foreground/80 normal-case tracking-normal">Coca-Cola · Officer's Choice · Max Life</div>
+              <div className="font-display text-sm normal-case tracking-normal text-foreground/80">
+                Coca-Cola · Officer's Choice · Max Life
+              </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* Portrait */}
@@ -102,25 +114,24 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="relative flex items-center justify-center"
+          className="relative flex items-center justify-center pb-16"
         >
           <div className="absolute inset-0 scale-110 rounded-full bg-gradient-primary opacity-30 blur-3xl" />
           <div className="relative h-[340px] w-[340px] overflow-hidden rounded-full border border-primary/40 shadow-glow lg:h-[420px] lg:w-[420px]">
-            <img
-              src="https://shreya-shenoy.up.railway.app/images/shreya.jpg"
+            <img src="/images/shreya.jpg"
               alt="Shreya R Shenoy — Creative Designer"
-              className="h-full w-full object-cover"
-            />
+              className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
           </div>
-          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 rounded-full glass px-5 py-2 text-xs uppercase tracking-[0.2em] text-foreground/80 whitespace-nowrap">
+
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded-full glass px-5 py-2 text-xs uppercase tracking-[0.2em] text-foreground/80 whitespace-nowrap">
             ✦ Creative Designer
           </div>
         </motion.div>
       </div>
 
       {/* Scroll cue */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
         <div className="flex flex-col items-center gap-2">
           <span>Scroll</span>
           <div className="h-10 w-px bg-gradient-to-b from-foreground/40 to-transparent" />

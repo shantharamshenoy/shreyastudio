@@ -2,11 +2,11 @@ import { Link } from "@tanstack/react-router";
 
 export function Nav() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-6 py-5 lg:px-12">
+    <header className="fixed top-0 left-0 right-0 z-40 py-5 lg:px-12">
       <div className="mx-auto flex max-w-7xl items-center justify-between glass rounded-full px-6 py-3">
         <Link to="/" className="font-display text-base font-semibold tracking-tight">
-          <span className="text-gradient">Shreya</span>
-          <span className="text-foreground/60">.studio</span>
+          <span className="text-gradient">Shreya Shenoy</span>
+          {/* <span className="text-foreground/60"> </span> */}
         </Link>
         <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
           <a href="#work" className="transition hover:text-foreground">Work</a>

@@ -27,19 +27,13 @@ export function About() {
           className="space-y-6 text-lg leading-relaxed text-muted-foreground"
         >
           <p>
-            This portfolio is a collection of work across branding, packaging, campaigns, and
-            interface design. Over the years, I've worked with brands like{" "}
-            <span className="text-foreground">Coca-Cola India, Officer's Choice,</span> and{" "}
-            <span className="text-foreground">Max Life Insurance</span> — shaping visuals across
-            different formats and audiences.
+            I've spent years designing across print, brand, and digital and honestly, I love that no two projects look the same. From packaging on a shelf to a clean interface on a screen, I'm always looking for the simplest, most intentional way to give an idea its form.
           </p>
           <p>
-            I enjoy simplifying ideas and giving them form — whether through packaging on a shelf
-            or a clean, structured digital layout. Recently, my focus has expanded into UI/UX,
-            where I'm exploring how design can be both intuitive and visually distinct.
+            I've had the chance to work with brands like Coca-Cola India, Officer's Choice, and Max Life Insurance shaping how they look and feel across different formats and audiences. These days, I'm diving deeper into UI/UX, drawn to the challenge of making things that are both visually distinct and genuinely easy to use.
           </p>
           <a
-            href="https://shreya-shenoy.up.railway.app/docs/Shreya_Shenoy_Resume.pdf"
+            href="/docs/Shreya_Shenoy_Resume.pdf"
             target="_blank"
             rel="noopener"
             className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium text-foreground transition hover:bg-white/10"
